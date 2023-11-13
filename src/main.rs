@@ -12,7 +12,8 @@ fn simple_data_display(weather_response: &WeatherResponse) {
 }    
 
 fn detailed_data_display(weather_response: &WeatherResponse) {
-    println!("todo");
+    weather_response.location.detailed_display();
+    weather_response.current.detailed_display();
 }
 
 #[tokio::main]

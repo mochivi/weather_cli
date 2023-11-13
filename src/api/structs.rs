@@ -26,6 +26,14 @@ impl Location {
         println!("City: {}", self.name);
         println!("Country: {}", self.country);
     }
+
+    pub fn detailed_display(&self) {
+        println!("City: {}", self.name);
+        println!("Region: {}", self.region);
+        println!("Country: {}", self.country);
+        println!("Timezone: {}", self.tz_id);
+        println!("Local time: {}", self.localtime);
+    }
 }
 
 #[derive(Debug, Deserialize)]
@@ -64,6 +72,17 @@ impl Current {
         println!("Precipitation (mm): {}", self.precip_mm);
         println!("Cloud coverage (%): {}", self.cloud);
     }
+
+    pub fn detailed_display(&self) {
+        println!("Temperature (C): {}", self.temp_c);
+        println!("Feels like (C): {}", self.feelslike_c);
+        println!("Humidity: {}", self.humidity);
+        println!("Precipitation (mm): {}", self.precip_mm);
+        println!("Wind (kph): {}", self.wind_kph);
+        println!("UV: {}", self.uv);
+        println!("Cloud coverage (%): {}", self.cloud);
+        self.condition.detailed_display();
+    }
 }
 
 #[derive(Debug, Deserialize)]
@@ -72,6 +91,12 @@ pub struct Condition {
     text: String,
     icon: String,
     code: u16
+}
+
+impl Condition {
+    pub fn detailed_display(&self) {
+        println!("Condition text: {}", self.text);
+    }
 }
 
 #[derive(Debug, Deserialize)]

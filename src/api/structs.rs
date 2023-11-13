@@ -21,6 +21,13 @@ pub struct Location {
     localtime: String,
 }
 
+impl Location {
+    pub fn simple_display(&self) {
+        println!("City: {}", self.name);
+        println!("Country: {}", self.country);
+    }
+}
+
 #[derive(Debug, Deserialize)]
 #[allow(dead_code)]
 pub struct Current {
@@ -47,6 +54,16 @@ pub struct Current {
     uv: f64,
     gust_mph: f64,
     gust_kph: f64,
+}
+
+impl Current {
+    pub fn simple_display(&self) {
+        println!("Temperature (C): {}", self.temp_c);
+        println!("Feels like (C): {}", self.feelslike_c);
+        println!("Humidity: {}", self.humidity);
+        println!("Precipitation (mm): {}", self.precip_mm);
+        println!("Cloud coverage (%): {}", self.cloud);
+    }
 }
 
 #[derive(Debug, Deserialize)]
